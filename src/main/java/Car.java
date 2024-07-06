@@ -6,10 +6,10 @@ public class Car {
     public Car(String name, double speed) {
         this.name = name;
         this.speed = speed;
-        if(!isCorrectSpeed()) this.speed = -1;
+        if (!isCorrectSpeed()) this.speed = -1;
     }
 
-    public boolean isCorrectSpeed(){
+    public boolean isCorrectSpeed() {
         if (speed <= 0 || speed > 250) return false;
         return true;
     }
@@ -30,7 +30,7 @@ public class Car {
         this.speed = speed;
     }
 
-    public double getDistance(){
+    public double getDistance() {
         return 24 * speed;
     }
 }

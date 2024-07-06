@@ -34,21 +34,26 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         Race race = new Race();
-        String name;
-        double speed;
-        Car car;
-        for(int i = 0;i < 3;i++) {
-            System.out.println("Name of car number " + (i+1) + ":");
+        String name = "default";
+        double speed = -1;
+        Car car = new Car(name, speed);
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Название автомобиля " + (i + 1) + ":");
             name = scanner.next();
             do {
-                System.out.println("Speed of car number " + (i+1) + ":");
-                speed = scanner.nextDouble();
+                System.out.println("Скорость автомобиля " + (i + 1) + ":");
+                String speedStr = scanner.next();
+                try {
+                    speed = Double.parseDouble(speedStr);
+                } catch (Exception e) {
+                    speed = -1;
+                }
                 car = new Car(name, speed);
-                if(!car.isCorrectSpeed()) System.out.println("Incorrect speed!");
+                if (!car.isCorrectSpeed()) System.out.println("Неправильная скорость!");
             } while (!car.isCorrectSpeed());
             race.addCar(car);
         }
         Car winner = race.getWinner();
-        System.out.println("The faster car -> " + winner.getName());
+        System.out.println("Самый быстрый автомобиль -> " + winner.getName());
     }
 }

@@ -7,14 +7,14 @@ public class Race {
     public Race() {
     }
 
-    public void addCar(Car car){
+    public void addCar(Car car) {
         cars.add(car);
     }
 
-    public Car getWinner(){
-        if (cars.size() == 0) return null;
+    public Car getWinner() {
+        if (cars.isEmpty()) return null;
         Car winner = cars.get(0);
-        for (Car car: cars) {
+        for (Car car : cars) {
             if (car.getDistance() > winner.getDistance())
                 winner = car;
         }
